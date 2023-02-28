@@ -1,11 +1,19 @@
+import { Routes, Route } from "@solidjs/router"
+import { lazy } from "solid-js";
 import Header from './component/Header'
-import Footer from './component/Footer'
+const Products = lazy(() => import("./pages/Products"));
+const Home = lazy(() => import("./pages/Home"));
+const SingleProduct = lazy(() => import("./pages/SingleProduct"));
 
 function App() {
   return (
     <div>
       <Header />
-      <Footer />
+      <Routes>
+      <Route path="/" component={Home} />
+      <Route path="/products" component={Products}  />
+      <Route path="/products/:id" component={SingleProduct}  />
+      </Routes>
     </div>
   );
 }

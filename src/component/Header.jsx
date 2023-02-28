@@ -1,4 +1,5 @@
 import { AiOutlineShoppingCart } from 'solid-icons/ai'
+import { A } from "@solidjs/router"
 
 const Header = () => {
     return <div>
@@ -14,21 +15,21 @@ const Header = () => {
                     <i class="fa fa-bars"></i>
                 </div>
                 <div class="flex-grow font-bold text-lg">
-                    {/* <router-link :to="{ name: 'home'}" > */}
+                <A href="/">
                         <span class="">Noble's Shop</span>
-                    {/* </router-link> */}
+                </A>
                 </div>
                 <div class="menu hidden md:flex flex-col md:flex-row mt-5 md:mt-0 gap-16">
                     <div class="flex flex-col md:flex-row gap-12 capitalize">
                         <div class="">
-                            {/* <router-link :to="{ name: 'home'}" > */}
-                                <span class="text-red-400 font-bold border-b border-red-400">home</span>
-                            {/* </router-link> */}
+                        <A href="/">
+                                <span class="text-red-400 font-bold border-b border-red-400">Home</span>
+                         </A>
                         </div>
                         <div class="">
-                            {/* <router-link :to="{ name: 'products'}" > */}
+                        <A href="/products">
                                 <span class="">products</span>
-                            {/* </router-link> */}
+                         </A>
                         </div>
 
                     </div>

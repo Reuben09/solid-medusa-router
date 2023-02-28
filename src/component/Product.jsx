@@ -6,7 +6,7 @@ import { Box, Typography, Grid, IconButton, Button } from "@suid/material";
 function Product () {
   const [productData, setProductData] = createSignal([]);
   createEffect(async ()=> {
-    const res = await fetch('https://dummyjson.com/products');
+    const res = await fetch(`${import.meta.env.VITE_baseUrl}/store/products`);
     const data = await res.json()
     setProductData(data.products)
   })
@@ -30,17 +30,16 @@ function Product () {
         Featured Products
       </Typography>
   
-      <Box>
-      <Grid container spacing={2}>
+      <Box sx={{margin: "0 2rem"}}>
+      <Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gridGap: "2rem"}}>
         <For each={productData()}>
                 {(productItem) => 
                  <A href={`/products/${productItem.id}`}>
-                  <Grid item xs={12} sx={{backgroundColor: "#fff" }}>
                 <Box
                   component="div"
                   sx={{
                     backgroundColor: "rgb(231, 231, 231)",
-                    height: "300px",
+                    height: "350px",
                     padding: "0.5rem"
                   }}
                 >
@@ -55,7 +54,7 @@ function Product () {
                       }}
                     />
                   </Box>
-                  <Typography sx={{ textAlign: "center", fontWeight: "600" }}>
+                  <Typography sx={{ padding: "1rem 0", textAlign: "center", fontWeight: "600" }}>
                     {productItem.title}
                   </Typography>
                   <Typography sx={{ textAlign: "center" }}>
@@ -67,10 +66,9 @@ function Product () {
                     </IconButton>
                   </Box>
                 </Box>
-              </Grid>
                   </A>
                 }</For>
-                  </Grid>
+                  </Box>
       </Box>
     </Box>
     </>

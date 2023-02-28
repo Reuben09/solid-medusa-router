@@ -29,32 +29,30 @@ function Home (){
         >
           <Typography
             sx={{
-              fontSize: { lg: "4rem", xs: "3rem" },
+              fontSize: "3rem",
               color: "#ffffff",
-              marginBottom: "0.3rem"
             }}
           >
             Reuben09
           </Typography>
           <Typography
             sx={{
-              fontSize: { lg: "4rem", xs: "3rem" },
+              fontSize: "3rem",
               color: "#ffffff",
-              marginBottom: "0.5rem"
             }}
           >
             Sneakers
           </Typography>
-          <Typography sx={{ textAlign: "center", color: "#ffffff" }}>
+          <Typography sx={{textAlign: "center", color: "#ffffff" }}>
             Users of the highest converting shopify theme deserve a lifestyle to
             match!
           </Typography>
-          <Box sx={{ marginTop: "1rem" }}>
+          <Box sx={{marginTop: "1rem" }}>
             <IconButton>
               <Button
                 variant="contained"
                 color="primary"
-                sx={{ marginRight: "0.5rem" }}
+                sx={{marginRight: "0.5rem" }}
               >
                 Shop now
               </Button>
@@ -71,7 +69,7 @@ function Home (){
           </Box>
         </Box>
       </Box>
-      <Box component="div" sx={{ marginBottom: "2rem" }}>
+      <Box component="div" sx={{marginBottom: "2rem" }}>
       <Product />
       </Box>
       <Box section="footer">

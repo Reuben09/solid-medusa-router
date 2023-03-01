@@ -21,12 +21,12 @@ function NewsLetter() {
       >
         <Box component="form">
           <Typography
-            component="h1"
+            variant="h2"
+            mt={10}
             sx={{
               textAlign: "center",
               fontSize: "1.5rem",
               marginBottom: "0.3rem",
-              marginTop: "2rem"
             }}
           >
             {" "}

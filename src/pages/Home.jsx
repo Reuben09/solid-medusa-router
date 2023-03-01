@@ -1,5 +1,5 @@
 import { Box, Typography, IconButton, Button } from "@suid/material";
-import Product from '../component/Product'
+import ProductList from '../component/ProductList'
 import Footer from '../component/Footer'
 
 function Home (){
@@ -70,7 +70,7 @@ function Home (){
         </Box>
       </Box>
       <Box component="div" sx={{marginBottom: "2rem" }}>
-      <Product />
+      <ProductList />
       </Box>
       <Box section="footer">
         <Footer />

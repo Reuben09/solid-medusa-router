@@ -12,7 +12,7 @@ function App() {
       <Routes>
       <Route path="/" component={Home} />
       <Route path="/products" component={Products}  />
-      <Route path="/products/:id" component={SingleProduct}  />
+      <Route path="/products/:productId" component={SingleProduct}  />
       </Routes>
     </div>
   );

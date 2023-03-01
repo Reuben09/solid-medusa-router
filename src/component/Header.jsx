@@ -5,6 +5,9 @@ import { Typography, IconButton, AppBar, Toolbar } from "@suid/material";
 import ShoppingCartIcon from "@suid/icons-material/ShoppingCart";
 
 const Header = () => {
+
+  const cartCount = localStorage.getItem('cartCount') ?? 0
+
     return<Box>
     <AppBar position="fixed" color="primary">
       <Toolbar>
@@ -64,7 +67,7 @@ const Header = () => {
                 </A>
                 <IconButton>
                 <ShoppingCartIcon sx={{ color: "#fff" }} />
-                 </IconButton>
+                 </IconButton><p>{cartCount}</p>
                 </Box>
           </Toolbar>
           </AppBar>

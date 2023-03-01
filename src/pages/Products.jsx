@@ -1,9 +1,10 @@
-import { Button } from "@suid/material";
+import ProductList from '../component/ProductList'
+import Footer from '../component/Footer'
 
 function Products (){
   return <div>
-    products page aaaa
-    <Button variant="contained">Hello world</Button>
+    <ProductList />
+    <Footer />
   </div>
 }
 

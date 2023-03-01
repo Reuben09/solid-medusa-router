@@ -1,14 +1,17 @@
 import { createEffect, createSignal, For } from 'solid-js'
 import { A } from "@solidjs/router"
-import { Box, Typography, Grid, IconButton, Button } from "@suid/material";
+import { Box, Typography, Link } from "@suid/material";
+import { medusaClient } from '../utils/client.js'
 
 
-function Product () {
-  const [productData, setProductData] = createSignal([]);
-  createEffect(async ()=> {
-    const res = await fetch(`${import.meta.env.VITE_baseUrl}/store/products`);
-    const data = await res.json()
-    setProductData(data.products)
+function ProductList () {
+  const [products, setProducts] = createSignal([]);
+  createEffect(()=> {
+    const fetchProducts = async () => {
+      const res = await medusaClient.products.list();
+      setProducts(res.products)
+  }
+  fetchProducts()
   })
   return(
     <>
@@ -32,9 +35,8 @@ function Product () {
   
       <Box sx={{margin: "0 2rem"}}>
       <Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gridGap: "2rem"}}>
-        <For each={productData()}>
-                {(productItem) => 
-                 <A href={`/products/${productItem.id}`}>
+        <For each={products()}>
+                {(product) => 
                 <Box
                   component="div"
                   sx={{
@@ -46,7 +48,7 @@ function Product () {
                   <Box component="div" sx={{ height: "12rem" }}>
                     <Box
                       component="img"
-                      src={productItem.thumbnail}
+                      src={product?.thumbnail}
                       sx={{
                         height: "12rem",
                         width: "100%",
@@ -55,18 +57,19 @@ function Product () {
                     />
                   </Box>
                   <Typography sx={{ padding: "1rem 0", textAlign: "center", fontWeight: "600" }}>
-                    {productItem.title}
+                    {product?.title}
                   </Typography>
                   <Typography sx={{ textAlign: "center" }}>
-                    ${productItem.price}
+                  &euro; {product?.variants[0].prices[0].amount / 100 }
                   </Typography>
                   <Box sx={{ textAlign: "center" }}>
-                    <IconButton>
-                      <Button variant="outlined">Add</Button>
-                    </IconButton>
+                  <Link underline="always">
+                  <A href={`/products/${product.id}`}>
+                  See product
+                    </A>
+                    </Link>
                   </Box>
                 </Box>
-                  </A>
                 }</For>
                   </Box>
       </Box>
@@ -75,4 +78,4 @@ function Product () {
   ) 
 }
 
-export default Product;
+export default ProductList;

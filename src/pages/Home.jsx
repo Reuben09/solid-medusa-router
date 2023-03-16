@@ -41,7 +41,7 @@ function Home (){
               color: "#ffffff",
             }}
           >
-            Sneakers
+            WebShop
           </Typography>
           <Typography sx={{textAlign: "center", color: "#ffffff" }}>
             Users of the highest converting shopify theme deserve a lifestyle to

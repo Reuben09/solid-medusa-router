@@ -1,6 +1,6 @@
 import { createEffect, createSignal, For } from 'solid-js'
 import { A } from "@solidjs/router"
-import { Box, Typography, Link } from "@suid/material";
+import { Box, Typography, Link, Grid } from "@suid/material";
 import { medusaClient } from '../utils/client.js'
 
 
@@ -34,9 +34,10 @@ function ProductList () {
       </Typography>
   
       <Box sx={{margin: "0 2rem"}}>
-      <Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gridGap: "2rem"}}>
+      <Grid container spacing={1}>
         <For each={products()}>
                 {(product) => 
+                 <Grid item lg={3} xs={6} sm={6} sx={{ backgroundColor: "#fff" }}>
                 <Box
                   component="div"
                   sx={{
@@ -70,8 +71,10 @@ function ProductList () {
                     </Link>
                   </Box>
                 </Box>
+                </Grid>
                 }</For>
-                  </Box>
+              </Grid>
+                  {/* </Box> */}
       </Box>
     </Box>
     </>

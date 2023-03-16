@@ -51,14 +51,14 @@ function SingleProduct (){
         <Box sx={{marginTop: "7rem"}}>
           <Container maxWidth="sm">
           <Grid container spacing={2}>
-             <Grid item xs={6}>
+             <Grid item lg={6} xs={12} sm={6}>
              <Box>
                       <img sx={{width:"500px"}}
                           alt={productItem()?.title}
                           src={productItem()?.thumbnail} />
                   </Box>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item lg={6} xs={12} sm={6}>
                   <Box sx={{marginTop: "2rem", display: "flex", justifyContent: "flex-start", alignItems: "flex-start", flexDirection: "column"}}>
                       <Typography variant="h5" mb={2}>{productItem()?.title}</Typography>
                       <Typography mb={2}>&euro; {productItem()?.variants[0].prices[0].amount / 100 }</Typography>
